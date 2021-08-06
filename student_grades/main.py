@@ -1,4 +1,5 @@
 from models.SKLearn import get_model
+from models.gradient import GradientDescent
 from utils.plot import Plotter
 from utils.utility import read_data
 from sklearn.model_selection import train_test_split
@@ -21,6 +22,14 @@ print('MSE:', metrics.mean_squared_error(y_test, predictions))
 print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, predictions)))
 print('Accuracy:', linear_model.score(X_test, y_test))
 
-plotter = Plotter()
+# gd = GradientDescent(X_train, y_train, X_test)
 
-plotter.scatterplot(y_test, predictions)
+# # cost = gd.fit(0.01, 100)
+# gd.fit(0.001, 50)
+
+# predictions2 = gd.predict()
+
+# plotter = Plotter()
+
+# print(gd.get_theta())
+# print(linear_model.coeff_)
