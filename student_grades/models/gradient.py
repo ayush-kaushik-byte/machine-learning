@@ -29,8 +29,6 @@ class GradientDescent:
 
 			it = [i for i in range(iterations)]
 
-			return [J_hist, it]
-
 		else:
 			for i in range(iterations):
 				self.theta -= alpha * (np.dot(self.X.T, (np.dot(self.X, self.theta) - self.y))) / (self.x_shape[0])
@@ -48,3 +46,6 @@ class GradientDescent:
 
 	def get_shapes(self):
 		return self.x_shape, self.y_shape, self.theta.shape
+
+	def RMSE(self, y_test, predictions):
+		return np.sqrt((np.sum(np.square(y_test - predictions)) / y_test.shape[0]))
