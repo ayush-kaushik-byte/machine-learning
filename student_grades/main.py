@@ -15,21 +15,19 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 linear_model = get_model(X_train, y_train)
 
-predictions = linear_model.predict(X_test)
+predictions1 = linear_model.predict(X_test)
 
-print('MAE:', metrics.mean_absolute_error(y_test, predictions))
-print('MSE:', metrics.mean_squared_error(y_test, predictions))
-print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, predictions)))
-print('Accuracy:', linear_model.score(X_test, y_test))
+# print('MAE:', metrics.mean_absolute_error(y_test, predictions))
+# print('MSE:', metrics.mean_squared_error(y_test, predictions))
+# print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, predictions)))
+# print('Accuracy:', linear_model.score(X_test, y_test))
 
-# gd = GradientDescent(X_train, y_train, X_test)
+gd = GradientDescent(X_train, y_train, X_test)
 
-# # cost = gd.fit(0.01, 100)
-# gd.fit(0.001, 50)
+gd.fit(0.001, 100)
 
-# predictions2 = gd.predict()
+predictions2 = gd.predict()
 
-# plotter = Plotter()
+plotter = Plotter()
 
-# print(gd.get_theta())
-# print(linear_model.coeff_)
+plotter.scatterplot(predictions2,predictions1)

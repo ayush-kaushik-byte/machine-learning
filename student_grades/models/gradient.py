@@ -13,6 +13,7 @@ class GradientDescent:
 		self.X_test = np.insert(self.X_test, 0, np.ones((self.X_test.shape[0])), axis=1)
 		self.y = np.array(y).reshape(self.y_shape[0], 1)
 		self.theta = np.zeros((self.x_shape[1], 1))
+		self.m = self.x_shape[0]
 
 	def cost_function(self, X, y, theta):
 
@@ -22,7 +23,7 @@ class GradientDescent:
 	def fit(self, alpha, iterations):
 
 		for i in range(iterations):
-			self.theta -= alpha * (np.dot(self.X.T, (np.dot(self.X, self.theta) - self.y)))
+			self.theta -= alpha * (np.dot(self.X.T, (np.dot(self.X, self.theta) - self.y))) / (self.x_shape[0])
 
 	def predict(self):
 		return np.dot(self.X_test, self.theta)
