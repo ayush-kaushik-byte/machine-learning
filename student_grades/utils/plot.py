@@ -13,10 +13,12 @@ class Plotter():
 
 	def scatterplot(self, x_param, y_param):
 		plt.scatter(x_param,y_param)
+		plt.xlabel('X AXIS')
+		plt.ylabel('Y AXIS')
 		plt.show()
 
-	def distplot(self, y_test, predictions):
-		sns.distplot((y_test-predictions),bins=50)
+	def histplot(self, y_test, predictions):
+		sns.histplot((y_test-predictions),bins=50)
 		plt.show()
 
 	def pairplot(self, data):
