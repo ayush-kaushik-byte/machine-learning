@@ -21,12 +21,12 @@ predictions1 = linear_model.predict(X_test)
 # print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, predictions)))
 # print('Accuracy:', linear_model.score(X_test, y_test))
 
+plotter = Plotter()
+
 gd = GradientDescent(X_train, y_train)
 cost = gd.fit(0.001, 30, True)
-# plotter.scatterplot(cost[1], cost[0])		#for providing a graphical view of convergence.
+plotter.scatterplot(cost[1], cost[0])		#for providing a graphical view of convergence.
 predictions2 = gd.predict(X_test)
-
-plotter = Plotter()
 
 plotter.scatterplot(y_test, predictions2)
 plotter.histplot(y_test, predictions2)
